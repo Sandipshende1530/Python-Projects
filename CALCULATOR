@@ -1,0 +1,49 @@
+ # Simple Calculator in Python
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y != 0:
+        return x / y
+    else:
+        return "Error: Cannot divide by zero"
+
+print("Select operation:")
+print("a. Add")
+print("b. Subtract")
+print("c. Multiply")
+print("d. Divide")
+
+while True:
+    choice = input("Enter choice (a/b/c/d): ")
+
+    if choice in ('a', 'b', 'c', 'd'):
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        except ValueError:
+            print("Invalid input. Please enter valid numbers.")
+            continue
+
+        if choice == 'a':
+            print(f"{num1} + {num2} = {add(num1, num2)}")
+        elif choice == 'b':
+            print(f"{num1} - {num2} = {subtract(num1, num2)}")
+        elif choice == 'c':
+            print(f"{num1} * {num2} = {multiply(num1, num2)}")
+        elif choice == 'd':
+            print(f"{num1} / {num2} = {divide(num1, num2)}")
+    else:
+        print("Invalid choice. Please select a valid option.")
+
+    another_calculation = input("Do you want to perform another calculation? (yes/no): ")
+    if another_calculation.lower() != 'yes':
+        print("Exiting the calculator. Have a great day!")
+        break
